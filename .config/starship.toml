@@ -27,6 +27,7 @@ command_timeout = 5000
 # add_newline = false
 
 # You can also replace your username with a neat symbol like  to save some space
+#       
 [username]
 show_always = true
 style_user = "bg:#3B4252"
