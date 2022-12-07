@@ -332,5 +332,9 @@ alias intunewinenroll="open -a Safari https://endpoint.microsoft.com/#blade/Micr
 alias intunemacenroll="open -a Safari https://endpoint.microsoft.com/#blade/Microsoft_Intune_Enrollment/DepTokenMenuBlade/devices/tokenId/5d83d515-3e25-48dd-b8af-74201a3395ea"
 alias intunewinadmin="open -a Safari https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/ConfigureWMPolicyMenuBlade/overview/policyId/076692cc-c2f3-4fd5-80d0-77fd50aa85b2/policyType/0"
 
+# autojump
+[ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
+alias j="autojump "
+
 ### SETTING THE STARSHIP PROMPT ###
 starship init fish | source
