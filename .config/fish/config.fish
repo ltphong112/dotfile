@@ -172,45 +172,16 @@ function take --argument number
     head -$number
 end
 
-# Function for org-agenda
-function org-search -d "send a search string to org-mode"
-    set -l output (/usr/bin/emacsclient -a "" -e "(message \"%s\" (mapconcat #'substring-no-properties \
-        (mapcar #'org-link-display-format \
-        (org-ql-query \
-        :select #'org-get-heading \
-        :from  (org-agenda-files) \
-        :where (org-ql--query-string-to-sexp \"$argv\"))) \
-        \"
-    \"))")
-    printf $output
-end
-
 ### END OF FUNCTIONS ###
 
 
 ### ALIASES ###
-# \x1b[2J   <- clears tty
-# \x1b[1;1H <- goes to (1, 1) (start)
-alias clear='echo -en "\x1b[2J\x1b[1;1H" ; echo; echo; seq 1 (tput cols) | sort -R | spark | lolcat; echo; echo'
-
-# root privileges
-alias doas="doas --"
-
 # navigation
 alias ..='cd ..'
 alias ...='cd ../..'
 alias .3='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
-
-# vim and emacs
-alias vim='nvim'
-alias em='/usr/bin/emacs -nw'
-alias emacs="emacsclient -c -a 'emacs'"
-alias doomsync="~/.emacs.d/bin/doom sync"
-alias doomdoctor="~/.emacs.d/bin/doom doctor"
-alias doomupgrade="~/.emacs.d/bin/doom upgrade"
-alias doompurge="~/.emacs.d/bin/doom purge"
 
 # Changing "ls" to "exa"
 alias ls='exa -al --color=always --group-directories-first' # my preferred listing
@@ -263,17 +234,17 @@ alias pscpu='ps auxf | sort -nr -k 3'
 alias merge='xrdb -merge ~/.Xresources'
 
 # git
-alias addup='git add -u'
-alias addall='git add .'
-alias branch='git branch'
-alias checkout='git checkout'
-alias clone='git clone'
-alias commit='git commit -m'
-alias fetch='git fetch'
-alias pull='git pull origin'
-alias push='git push origin'
-alias tag='git tag'
-alias newtag='git tag -a'
+alias gau='git add -u'
+alias ga='git add .'
+alias gb='git branch'
+alias gch='git checkout'
+alias gcl='git clone'
+alias gc='git commit -m'
+alias gf='git fetch'
+alias gp='git pull origin'
+alias gpu='git push origin'
+alias gt='git tag'
+alias gnt='git tag -a'
 
 # get error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
@@ -305,12 +276,6 @@ alias yta-vorbis="youtube-dl --extract-audio --audio-format vorbis "
 alias yta-wav="youtube-dl --extract-audio --audio-format wav "
 alias ytv-best="youtube-dl -f bestvideo+bestaudio "
 
-# switch between shells
-# I do not recommend switching default SHELL from bash.
-alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
-alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
-alias tofish="sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
-
 # bare git repo alias for dotfiles
 alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 
@@ -327,14 +292,10 @@ alias tips="lbrynet txo spend --type=support --is_not_my_input --blocking"
 alias mocp="bash -c mocp"
 
 # 
-alias dxctraining="open -a Safari https://dxc-eu.litmoseu.com/home/dashboard"
-alias intunewinenroll="open -a Safari https://endpoint.microsoft.com/#blade/Microsoft_Intune_Enrollment/AutoPilotDevicesBlade"
-alias intunemacenroll="open -a Safari https://endpoint.microsoft.com/#blade/Microsoft_Intune_Enrollment/DepTokenMenuBlade/devices/tokenId/5d83d515-3e25-48dd-b8af-74201a3395ea"
-alias intunewinadmin="open -a Safari https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/ConfigureWMPolicyMenuBlade/overview/policyId/076692cc-c2f3-4fd5-80d0-77fd50aa85b2/policyType/0"
-
-# autojump
-[ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
-alias j="autojump "
+alias dxt="open -a Min https://dxc-eu.litmoseu.com/home/dashboard"
+alias iwe="open -a Min https://endpoint.microsoft.com/#blade/Microsoft_Intune_Enrollment/AutoPilotDevicesBlade"
+alias ime="open -a Min https://endpoint.microsoft.com/#blade/Microsoft_Intune_Enrollment/DepTokenMenuBlade/devices/tokenId/5d83d515-3e25-48dd-b8af-74201a3395ea"
+alias iwa="open -a Min https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/ConfigureWMPolicyMenuBlade/overview/policyId/076692cc-c2f3-4fd5-80d0-77fd50aa85b2/policyType/0"
 
 ### SETTING THE STARSHIP PROMPT ###
 starship init fish | source
