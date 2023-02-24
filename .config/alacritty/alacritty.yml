@@ -1,7 +1,7 @@
 live_config_reload: true
 
 window:
-  opacity: 0.85
+  opacity: 0.80
   padding:
     x: 18
     y: 16
@@ -11,39 +11,42 @@ window:
 font:
   normal:
     family: "SFMono Nerd Font"
-    style:  Regular 
+    style: Regular
   size: 14.0
+  offset:
+    x: 0
+    y: 1
+draw_bold_text_with_bright_colors: false
 
 schemes:
-  ### Doom One ###
   Coolnight: &Coolnight
     primary:
-      background: '#010b17'
-      foreground: '#ebddf4'
+      background: "#010b17"
+      foreground: "#ebddf4"
     cursor:
-      text: CellBackground
-      cursor: '#38ff9c'
+      #      text: CellBackground
+      cursor: "#38ff9c"
     selection:
-      text: CellForeground
-      background: '#38ff9c'
+      #text: CellForeground
+      background: "#38ff9c"
     normal:
-      black:   '#0b3b61'
-      red:     '#ff3a3a'
-      green:   '#52ffcf'
-      yellow:  '#fff383'
-      blue:    '#1376f8'
-      magenta: '#c792ea'
-      cyan:    '#ff5dd4'
-      white:   '#15fca2'
+      black: "#0b3b61"
+      red: "#ff3a3a"
+      green: "#52ffcf"
+      yellow: "#fff383"
+      blue: "#1376f8"
+      magenta: "#c792ea"
+      cyan: "#ff5dd4"
+      white: "#15fca2"
     bright:
-      black:   '#62686c'
-      red:     '#ff54b0'
-      green:   '#73ffd8'
-      yellow:  '#fcf4ad'
-      blue:    '#378dfe'  
-      magenta: '#ae81ff'
-      cyan:    '#ff69d7'
-      white:   '#5ffbbe'
+      black: "#62686c"
+      red: "#ff54b0"
+      green: "#73ffd8"
+      yellow: "#fcf4ad"
+      blue: "#378dfe"
+      magenta: "#ae81ff"
+      cyan: "#ff69d7"
+      white: "#5ffbbe"
 
 colors: *Coolnight
 
