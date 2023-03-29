@@ -1,90 +1,79 @@
-live_config_reload: true
-
 window:
-  opacity: 0.80
+ 
   padding:
     x: 18
     y: 16
-  dynamic_padding: false
-  decorations: buttonless
 
+    dynamic_padding: true
+
+scrolling:
+  # Maximum number of lines in the scrollback buffer.
+  # Specifying '0' will disable scrolling.
+  history: 10000
+
+  # Scrolling distance multiplier.
+  multiplier: 3
+
+# Font configuration
 font:
+  # Normal (roman) font face
   normal:
-    family: "SFMono Nerd Font"
+    family: RobotoMono Nerd Font
+
     style: Regular
-  size: 14.0
-  offset:
-    x: 0
-    y: 1
-draw_bold_text_with_bright_colors: false
 
-schemes:
-  Coolnight: &Coolnight
-    primary:
-      background: "#010b17"
-      foreground: "#ebddf4"
-    cursor:
-      #      text: CellBackground
-      cursor: "#38ff9c"
-    selection:
-      #text: CellForeground
-      background: "#38ff9c"
-    normal:
-      black: "#0b3b61"
-      red: "#ff3a3a"
-      green: "#52ffcf"
-      yellow: "#fff383"
-      blue: "#1376f8"
-      magenta: "#c792ea"
-      cyan: "#ff5dd4"
-      white: "#15fca2"
-    bright:
-      black: "#62686c"
-      red: "#ff54b0"
-      green: "#73ffd8"
-      yellow: "#fcf4ad"
-      blue: "#378dfe"
-      magenta: "#ae81ff"
-      cyan: "#ff69d7"
-      white: "#5ffbbe"
+  # Bold font face
+  bold:
+    family: RobotoMono Nerd Font
 
-colors: *Coolnight
+    style: Bold
+
+  # Italic font face
+  italic:
+    family: RobotoMono Nerd Font
+
+    style: Italic
+
+  # Bold italic font face
+  bold_italic:
+    family: RobotoMono Nerd Font
+
+    style: Bold Italic
+
+  size: 11
+
+colors:
+
+  primary:
+    background: '#1e1e2e'
+    foreground: '#b4befe'
+
+  # Normal colors
+  normal:
+    black:   '#24273a'
+    red:     '#ed8796'
+    green:   '#a6da95'
+    yellow:  '#eed49f'
+    blue:    '#8aadf4'
+    magenta: '#c6a0f6'
+    cyan:    '#8bd5ca'
+    white:   '#cad3f5'
+
+  # Bright colors
+  bright:
+    black:   '#303446'
+    red:     '#e78284'
+    green:   '#a6d189'
+    yellow:  '#e5c890'
+    blue:    '#8caaee'
+    magenta: '#ca9ee6'
+    cyan:    '#81c8be'
+    white:   '#c6d0f5'
+ 
+  # Cursor style
+  style:
+    shape: Block
+    blinking: Off
 
 key_bindings:
-  # Rename the current tmux window
-  - { key: Comma, mods: Command, chars: "\x02\x2c" }
-  # Select a new tmux session for the attached client interactively
-  - { key: K, mods: Command, chars: "\x02\x73" }
-  # Select window 1-9
-  - { key: Key1, mods: Command, chars: "\x02\x31" }
-  - { key: Key2, mods: Command, chars: "\x02\x32" }
-  - { key: Key3, mods: Command, chars: "\x02\x33" }
-  - { key: Key4, mods: Command, chars: "\x02\x34" }
-  - { key: Key5, mods: Command, chars: "\x02\x35" }
-  - { key: Key6, mods: Command, chars: "\x02\x36" }
-  - { key: Key7, mods: Command, chars: "\x02\x37" }
-  - { key: Key8, mods: Command, chars: "\x02\x38" }
-  - { key: Key9, mods: Command, chars: "\x02\x39" }
-  # Switch to last tmux session
-  - { key: L, mods: Command, chars: "\x02\x4c" }
-  - { key: LBracket, mods: Command, chars: "\x02\x5b" }
-  # Change to the previous tmux window
-  - { key: LBracket, mods: Command|Shift, chars: "\x02\x70" }
-  # Split the current pane into two, left and right
-  - { key: N, mods: Command|Shift, chars: "\x02\x25" }
-  # Split the current pane into two, top and bottom.
-  - { key: N, mods: Command, chars: "\x02\x22" }
-  # Detach the current tmux client
-  - { key: Q, mods: Command, chars: "\x02\x64" }
-  # Change to the next tmux window
-  - { key: RBracket, mods: Command|Shift, chars: "\x02\x6e" }
-  # Type <escape>:w<enter> to save neovim
-  - { key: S, mods: Command, chars: "\x1b\x3a\x77\x0a" }
-  # Create a new tmux window
-  - { key: T, mods: Command, chars: "\x02\x63" }
-  # Break the current tmux pane out of the tmux window
-  - { key: T, mods: Command|Shift, chars: "\x02\x21" }
-  # Kill the current tmux pane (and window if last pane)
-  - { key: W, mods: Command, chars: "\x02\x78" }
-  # Toggle the zoom state of the current tmux pane
-  - { key: Z, mods: Command, chars: "\x02\x7a" }
+  - { key: Back, mods: Control, chars: "\u0017" }
