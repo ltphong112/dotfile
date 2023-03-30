@@ -51,7 +51,7 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
 	yay -S --noconfirm hyprland-bin alacritty fish sddm-git btop cava \
 		swaybg swaylock-effects rofi wlogout dunst thunar neovim-nightly-bin \
 		ttf-jetbrains-mono-nerd noto-fonts-emoji sddm-sugar-candy-git \
-		polkit-gnome python-requests starship \
+		polkit-gnome python-requests starship wl-clipboard-history-git \
 		swappy grim slurp pamixer brightnessctl gvfs \
 		bluez bluez-utils lxappearance xfce4-settings \
 		dracula-gtk-theme dracula-icons-git xdg-desktop-portal-hyprland-git
