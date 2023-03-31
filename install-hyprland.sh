@@ -52,7 +52,7 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
 		swaybg swaylock-effects rofi wlogout dunst thunar neovim-nightly-bin \
 		ttf-jetbrains-mono-nerd noto-fonts-emoji sddm-sugar-candy-git \
 		polkit-gnome python-requests starship wl-clipboard-history-git \
-		swappy grim slurp pamixer brightnessctl gvfs \
+		swappy grim slurp pamixer brightnessctl gvfs fd ripgrep \
 		bluez bluez-utils lxappearance xfce4-settings \
 		dracula-gtk-theme dracula-icons-git xdg-desktop-portal-hyprland-git
 
