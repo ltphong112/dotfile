@@ -79,6 +79,10 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
 	# set files as executable
 	chmod +x ~/.config/hypr/xdg-portal-hyprland
 	chmod +x ~/.config/waybar/scripts/waybar-wttr.py
+
+	#copy fonts
+	mkdir -p ~/.local/share
+	tar xf fonts.tar.gz --directory=$HOME/.local/share/
 fi
 
 # setup starship prompt
