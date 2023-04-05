@@ -1,277 +1,121 @@
-# ============================================================================
-# 🧰 setup  {{{
-add_newline = true
-scan_timeout = 10
-continuation_prompt = """[    ⋯  ](blu_2)"""
-palette = 'vagari' # palette definition must be last
-# }}}
-# ============================================================================
-
-format = """
-[╭╼╾ $sudo$username ╼╾ ${custom.date1} ${custom.date2}$python$rust$lua ╼╾ $hostname](blu_2)
-[╞╾](blu_2)$directory$git_branch$git_commit$git_state$git_status
-[╰╼╾ $character](blu_2)
-"""
-
-right_format = """[$status $cmd_duration╼╾ $time ╼╾╯](blu_2)"""
-
-
-[character]
-success_symbol = "[](blu_2)"
-error_symbol = "[](blu_2)"
-vimcmd_symbol = "[](blu_2)"
+# Sets user-defined palette
+palette = "catppuccin_macchiato"
 
 [directory]
-style = "bold blu_3"
-truncation_symbol = "⽙"
-read_only = " "
-home_symbol = "⾕"
+truncation_length = 4
+# Catppuccin 'lavender'
+style = "lavender"
 
-[username]
-style_user = "blu_2"
-style_root = "rby_2"
-format = "[⼈$user]($style)"
-show_always = true
+# palette tables should be last in the config ⚓️
+[palettes.catppuccin_macchiato]
+rosewater = "#f4dbd6"
+flamingo = "#f0c6c6"
+pink = "#f5bde6"
+mauve = "#c6a0f6"
+red = "#ed8796"
+maroon = "#ee99a0"
+peach = "#f5a97f"
+yellow = "#eed49f"
+green = "#a6da95"
+teal = "#8bd5ca"
+sky = "#91d7e3"
+sapphire = "#7dc4e4"
+blue = "#8aadf4"
+lavender = "#b7bdf8"
+text = "#cad3f5"
+subtext1 = "#b8c0e0"
+subtext0 = "#a5adcb"
+overlay2 = "#939ab7"
+overlay1 = "#8087a2"
+overlay0 = "#6e738d"
+surface2 = "#5b6078"
+surface1 = "#494d64"
+surface0 = "#363a4f"
+base = "#24273a"
+mantle = "#1e2030"
+crust = "#181926"
 
-[hostname]
-style = "blu_2"
-ssh_only = false
-format = "[$hostname ⾥]($style)"
-trim_at = "."
+[palettes.catppuccin_frappe]
+rosewater = "#f2d5cf"
+flamingo = "#eebebe"
+pink = "#f4b8e4"
+mauve = "#ca9ee6"
+red = "#e78284"
+maroon = "#ea999c"
+peach = "#ef9f76"
+yellow = "#e5c890"
+green = "#a6d189"
+teal = "#81c8be"
+sky = "#99d1db"
+sapphire = "#85c1dc"
+blue = "#8caaee"
+lavender = "#babbf1"
+text = "#c6d0f5"
+subtext1 = "#b5bfe2"
+subtext0 = "#a5adce"
+overlay2 = "#949cbb"
+overlay1 = "#838ba7"
+overlay0 = "#737994"
+surface2 = "#626880"
+surface1 = "#51576d"
+surface0 = "#414559"
+base = "#303446"
+mantle = "#292c3c"
+crust = "#232634"
 
-[cmd_duration]
-min_time = 420
-show_milliseconds = false
-format = "[$duration ](grn_3)"
-disabled = false
+[palettes.catppuccin_latte]
+rosewater = "#dc8a78"
+flamingo = "#dd7878"
+pink = "#ea76cb"
+mauve = "#8839ef"
+red = "#d20f39"
+maroon = "#e64553"
+peach = "#fe640b"
+yellow = "#df8e1d"
+green = "#40a02b"
+teal = "#179299"
+sky = "#04a5e5"
+sapphire = "#209fb5"
+blue = "#1e66f5"
+lavender = "#7287fd"
+text = "#4c4f69"
+subtext1 = "#5c5f77"
+subtext0 = "#6c6f85"
+overlay2 = "#7c7f93"
+overlay1 = "#8c8fa1"
+overlay0 = "#9ca0b0"
+surface2 = "#acb0be"
+surface1 = "#bcc0cc"
+surface0 = "#ccd0da"
+base = "#eff1f5"
+mantle = "#e6e9ef"
+crust = "#dce0e8"
 
-[git_branch]
-truncation_length = 12
-style = "orn_2"
-symbol = "⽀"
-truncation_symbol = "..."
-format = "[$symbol$branch(:$remote_branch)]($style)"
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
 
-[git_status]
-style = "orn_3"
-format = '[ $ahead_behind$conflicted$renamed$staged$modified$untracked$stashed$deleted]($style)'
-conflicted = "[ ](pnk_3)"
-stashed = "[ ${count} ](slt_2)"
-modified = "[🞊 ${count} ](sky_2)"
-staged = '[ ${count} ](orn_3)'
-untracked = '[ ${count} ](sun_3)'
-renamed = "[ ${count} ](prp_3)"
-ahead = "[⯭${count} ](grn_3)"
-diverged = '[ [${ahead_count} ](grn_3) [${behind_count} ](rby_3)](prp_3)'
-behind = '[⯯${count} ](rby_3)'
-deleted = "[ ${count} ](rby_3)"
-
-[time]
-format = '[$time]($style)'
-time_format = "時%R"
-style = "pnk_4"
-disabled = false
-
-[status]
-style = "blu_2"
-success_symbol = "[](grn_3)"
-not_executable_symbol = "[🕱 $common_meaning](slt_2)"
-not_found_symbol = "[ $common_meaning](rby_3)"
-sigint_symbol = "[ ABORT](blu_2)"
-signal_symbol = "[🗲 $int](sun_3)"
-symbol = "[ $int $common_meaning](rby_3)"
-recognize_signal_code = true
-pipestatus_format = """[⽣ $pipestatus ⽍]($style)"""
-pipestatus_separator = "[ » ]($style)"
-map_symbol = true
-pipestatus = true
-format = '[$symbol]($style)'
-disabled = false
-
-[sudo]
-format = "[󰌆 ](orn_3)"
-disabled = false
-
-[python]
-format = '[[ ╼╾](blu_2) $symbol ${pyenv_prefix}(${version})( \($virtualenv\))]($style)'
-symbol = ""
-style = "grn_3"
-
-[rust]
-format = "[ ╼╾](blu_2) [$symbol ($version )]($style)"
-symbol = ""
-style = "orn_3"
-
-[lua]
-symbol = ""
-style = "fg"
-format = "[[ ╼╾](blu_2) $symbol ($version)]($style)"
-
-[custom.date1]
-style = "prp_2"
-description = "simple date module, day only"
-command = "date '+%a'"
-symbol = "⽇"
-format = "[$symbol($output)]($style)"
-when = true
-
-[custom.date2]
-style = "prp_1"
-description = "simple date module, weekday only"
-command = "date '+%d'"
-symbol = "⽉"
-format = "[$symbol($output)]($style)"
-when = true
-
-[palettes.vagari]
-
-bg = '#222536'
-
-drk_0 = '#1e2133'
-drk_1 = '#181b2c'
-drk_2 = '#131626'
-drk_3 = '#0d0f1b'
-
-fg = '#aeb9f8'
-
-brt_0 = '#b6c0f7'
-brt_1 = '#bec6f8'
-brt_2 = '#cad1fb'
-brt_3 = '#d1d8ff'
-
-rby_0 = '#f34658'
-rby_1 = '#f36978'
-rby_2 = '#f07a88'
-rby_3 = '#f08898'
-rby_4 = '#f29ca9'
-
-his_0 = '#824141'
-his_1 = '#b15e5b'
-his_2 = '#c67a79'
-his_3 = '#d09490'
-
-rst_0 = '#493531'
-rst_1 = '#563e39'
-rst_2 = '#694b44'
-rst_3 = '#805a52'
-rst_4 = '#92675d'
-rst_5 = '#a3786d'
-
-orn_0 = '#e56b2c'
-orn_1 = '#ea834b'
-orn_2 = '#eb905d'
-orn_3 = '#f2a170'
-orn_4 = '#f8b486'
-
-sun_0 = '#f3a338'
-sun_1 = '#f5b855'
-sun_2 = '#f5c069'
-sun_3 = '#f4ce88'
-sun_4 = '#f5d599'
-
-pro_0 = '#505831'
-pro_1 = '#717b45'
-pro_2 = '#8a945b'
-pro_3 = '#9ea876'
-
-olv_0 = '#383a39'
-olv_1 = '#414342'
-olv_2 = '#505251'
-olv_3 = '#5f6361'
-olv_4 = '#6e7270'
-olv_5 = '#818382'
-
-grn_0 = '#5b9542'
-grn_1 = '#73ad5a'
-grn_2 = '#85ba6d'
-grn_3 = '#95cb79'
-grn_4 = '#9fd883'
-
-emr_0 = '#2d9a43'
-emr_1 = '#48a95b'
-emr_2 = '#5aba6d'
-emr_3 = '#5fc976'
-emr_4 = '#76d78b'
-
-tyr_0 = '#375c47'
-tyr_1 = '#4b8163'
-tyr_2 = '#5a9c78'
-tyr_3 = '#72b08e'
-
-cy2_0 = '#2bb198'
-cy2_1 = '#30c9b0'
-cy2_2 = '#38d2ba'
-cy2_3 = '#50dec8'
-cy2_4 = '#75e6d5'
-
-sky_0 = '#369fd7'
-sky_1 = '#54b0e2'
-sky_2 = '#6bbdec'
-sky_3 = '#7cc5ef'
-sky_4 = '#90d1f5'
-
-glu_0 = '#3b557c'
-glu_1 = '#5b77a4'
-glu_2 = '#7690b9'
-glu_3 = '#90a4c7'
-
-slt_0 = '#343852'
-slt_1 = '#3c4162'
-slt_2 = '#484e75'
-slt_3 = '#585f8d'
-slt_4 = '#686ea1'
-slt_5 = '#7b7fb0'
-
-blu_0 = '#4a6be3'
-blu_1 = '#6380ec'
-blu_2 = '#7492ef'
-blu_3 = '#8aa4f3'
-blu_4 = '#9db2f4'
-
-glc_0 = '#252841'
-glc_1 = '#282b48'
-glc_2 = '#30345a'
-glc_3 = '#3f4578'
-glc_4 = '#4e5492'
-glc_5 = '#5a61aa'
-
-prp_0 = '#7f61cd'
-prp_1 = '#9376d8'
-prp_2 = '#a188df'
-prp_3 = '#b29ae8'
-prp_4 = '#bdaaeb'
-
-asn_0 = '#6f447a'
-asn_1 = '#9961a7'
-asn_2 = '#af7dba'
-asn_3 = '#c193cd'
-
-pnk_0 = '#d15da6'
-pnk_1 = '#e36cb8'
-pnk_2 = '#ea76c0'
-pnk_3 = '#e887c3'
-pnk_4 = '#ed9acd'
-
-plm_0 = '#453445'
-plm_1 = '#523c52'
-plm_2 = '#634a64'
-plm_3 = '#765a77'
-plm_4 = '#876888'
-plm_5 = '#977998'
-
-blk_0 = '#1d1d21'
-blk_1 = '#16161a'
-blk_2 = '#101014'
-blk_3 = '#0b0b0f'
-
-wht_0 = '#c9c9e2'
-wht_1 = '#d3d3ed'
-wht_2 = '#ddddf6'
-wht_3 = '#e9e9fb'
-
-gry_0 = '#373945'
-gry_1 = '#3f414f'
-gry_2 = '#4f5163'
-gry_3 = '#5f6278'
-gry_4 = '#6d7089'
-gry_5 = '#7f8199'
