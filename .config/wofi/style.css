@@ -1,0 +1,50 @@
+@define-color highlight #403d52;
+@define-color base1 #191724;
+@define-color base2 #1f1d2e;
+@define-color base3 #26233a;
+
+*{
+  font-family: Ubuntu;
+}
+
+window {
+  border-radius: 15;
+  border: 1px solid @highlight;
+}
+
+#input {
+  margin-bottom: 15px;
+  padding: 5px 5px 5px 11px;
+  border-radius: 15px;
+  border:none;
+  color: #e0def4;
+}
+
+#inner-box {
+  padding: 10px 5px 5px 10px;
+}
+
+#outer-box {
+  margin: 5px;
+  padding:15px;
+  border-radius: 15px;
+  background-color: @base2;
+}
+
+#text {
+  padding: 5px;
+  color: #e0def4;
+}
+
+/*
+#entry:nth-child(even) {
+  background-color: @base1;
+}
+*/
+
+#entry {
+
+}
+
+#entry:selected {
+}

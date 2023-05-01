@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   width="800px"
+   height="800px"
+   viewBox="0 0 24 24"
+   fill="none"
+   version="1.1"
+   id="svg33903"
+   sodipodi:docname="microphone-svgrepo-com.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs33907" />
+  <sodipodi:namedview
+     id="namedview33905"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.88625"
+     inkscape:cx="400"
+     inkscape:cy="400"
+     inkscape:window-width="1702"
+     inkscape:window-height="918"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg33903" />
+  <path
+     d="M9.5 10.5V6.5C9.5 5.11929 10.6193 4 12 4C13.3807 4 14.5 5.11929 14.5 6.5V10.5C14.5 11.8807 13.3807 13 12 13C10.6193 13 9.5 11.8807 9.5 10.5Z"
+     fill="#000000"
+     stroke="#000000"
+     stroke-width="2"
+     stroke-linecap="round"
+     id="path33899"
+     style="fill:#c4a7e7;fill-opacity:1;stroke:#c4a7e7;stroke-opacity:1" />
+  <path
+     d="M7.5 14C8.11508 16.1869 9.8033 17.5 12 17.5M12 17.5C14.1967 17.5 15.8849 16.1869 16.5 14M12 17.5V21"
+     stroke="#000000"
+     stroke-width="2"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="path33901"
+     style="stroke:#c4a7e7;stroke-opacity:1" />
+</svg>

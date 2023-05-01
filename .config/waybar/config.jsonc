@@ -1,120 +1,65 @@
 {
   "layer": "top",
-  /*  "position": "top",
-  "mod": "dock",
-  "exclusive": true,
-  "passthrough": false,
-  "gtk-layer-shell": true,*/
-  "height": 30,
-  "spacing": 4,
+  "position": "top",
+
+  "height": 20,
+
   "modules-left": [
-    "custom/launch_wofi",
-    "wlr/workspaces",
+    "custom/launcher",
+    "sway/workspaces",
     "custom/weather"
   ],
+
   "modules-center": [
-    "clock"
   ],
+
   "modules-right": [
-    "battery",
-    "backlight",
+    "tray",
     "pulseaudio",
     "pulseaudio#microphone",
-    "custom/updates",
-    "tray",
-    "custom/power_btn"
+    "backlight",
+    "battery",
+    "clock",
+    "custom/power"
   ],
-  "custom/launch_wofi": {
-    "format": "",
-    "on-click": "pkill wofi; wofi -n",
+
+  "custom/launcher": {
+    "format":" ",
+    "on-click": "exec wofi -c ~/.config/wofi/config -I",
     "tooltip": false
   },
-  "wlr/workspaces": {
-    "format": "{icon}",
+
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "disable-markup" : false,
     "all-outputs": true,
-    "on-click": "activate",
+    "format": "  {icon}  ",
     "format-icons": {
-      "urgent": "",
-      "active": "",
-      "default": ""
-    },
-    "sort-by-number": true,
-    "on-scroll-up": "hyprctl dispatch workspace e+1",
-    "on-scroll-down": "hyprctl dispatch workspace e-1"
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": ""
+    }
   },
+  
   "custom/weather": {
-    //shows the current weather and forecast
-    "tooltip": true,
-    "format": "{}",
-    "interval": 30,
-    "exec": "~/.config/waybar/scripts/waybar-wttr.py",
-    "return-type": "json"
+    "exec": "~/.config/waybar/scripts/weather.sh 98203", 
+    "return-type": "json",
+    "interval": 600
   },
-  "custom/power_btn": {
-    "format": "",
-    "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
-    "tooltip": false
-  },
-  "custom/updates": {
-    "format": "{}",
-    "exec": "~/.config/waybar/scripts/update-sys",
-    "on-click": "~/.config/waybar/scripts/update-sys update",
-    "interval": 300,
-    "tooltip": true
-  },
+
   "tray": {
     "icon-size": 18,
-    "spacing": 10
+    "spacing":5
   },
-  "clock": {
-    "format": "{:%I:%M %p}",
-    "tooltip": true,
-    "tooltip-format": "{: %A, %B %e %Y}"
-  },
-  "backlight": {
-    "device": "intel_backlight",
-    "format": "{icon} {percent}%",
-    "format-icons": [
-      "",
-      "",
-      ""
-    ],
-    "on-scroll-up": "brightnessctl set 1%+",
-    "on-scroll-down": "brightnessctl set 1%-",
-    "min-length": 6
-  },
-  "battery": {
-    "states": {
-      "good": 95,
-      "warning": 30,
-      "critical": 20
-    },
-    "format": "{icon} {capacity}%",
-    "format-charging": " {capacity}%",
-    "format-plugged": " {capacity}%",
-    "format-alt": "{time} {icon}",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
-    ]
-  },
+
   "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-muted": "",
-    "on-click": "pamixer -t",
+    "format": "{icon}",
+    "format-muted": "",
+    "on-click": "~/.config/waybar/scripts/volume.sh --toggle",
     "on-click-right": "pavucontrol",
-    "on-scroll-up": "pamixer -i 5",
-    "on-scroll-down": "pamixer -d 5",
-    "scroll-step": 5,
+    "on-scroll-up": "~/.config/waybar/scripts/volume.sh --inc",
+    "on-scroll-down": "~/.config/waybar/scripts/volume.sh --dec",
     "format-icons": {
       "headphone": "",
       "hands-free": "",
@@ -122,21 +67,55 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": [
-        "",
-        "",
-        ""
-      ]
-    }
+      "default": ["", "", ""]
+    },
+    "scroll-step": 5,
+    "tooltip": true,
+    "tooltip-format": "{volume}%"
   },
   "pulseaudio#microphone": {
     "format": "{format_source}",
-    "format-source": " {volume}%",
+    "format-source": "",
     "format-source-muted": "",
-    "on-click": "pamixer --default-source -t",
+    "on-click": "~/.config/waybar/scripts/volume.sh --toggle-mic",
     "on-click-right": "pavucontrol",
-    "on-scroll-up": "pamixer --default-source -i 5",
-    "on-scroll-down": "pamixer --default-source -d 5",
-    "scroll-step": 5
+    "on-scroll-up": "~/.config/waybar/scripts/volume.sh --mic-inc",
+    "on-scroll-down": "~/.config/waybar/scripts/volume.sh --mic-dec",
+    "scroll-step": 5,
+    "tooltip": true,
+    "tooltip-format": "{volume}%"
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "on-scroll-up": "~/.config/waybar/scripts/brightness.sh --inc",
+    "on-scroll-down": "~/.config/waybar/scripts/brightness.sh --dec"
+  },
+
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical":15 
+    },
+    "format": "{icon}",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt-click": "click-right",
+    "format-alt": "{icon} {capacity}%",
+    "format-icons": ["", "", "", "", "", "", "", "", "", "", ""]
+  },
+
+  "clock": {
+    "interval": 10,
+    "format-alt": " {:%e %b %Y}", // Icon: calendar-alt
+    "format": "{:%H:%M}",
+    "tooltip-format": "{:%e %B %Y}"
+  },
+  "custom/power": {
+    "format":"⏻",
+    "on-click": "exec ~/.config/waybar/scripts/power-menu.sh",
+    "tooltip": false
   }
 }

@@ -1,0 +1,17 @@
+hide_scroll=true
+show=drun
+width=25%
+lines=10
+line_wrap=off
+term=alacritty
+allow_markup=false
+always_parse_args=true
+show_all=false
+print_command=true
+allow_images=true
+insensitive=true
+prompt= Enter text
+image_size=15
+display_generic=true
+location=center
+no_actions=true
