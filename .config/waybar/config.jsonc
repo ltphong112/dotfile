@@ -1,7 +1,7 @@
 {
   "layer": "top",
   "position": "left",
-  "modules-left": ["custom/launcher"],
+  "modules-left": ["custom/launcher", "custom/update"],
   "modules-center": ["wlr/workspaces"],
   "modules-right": ["tray", "pulseaudio", "backlight", "network", "battery", "clock", "custom/power-menu"],
   "wlr/workspaces": {
@@ -14,7 +14,15 @@
   },
   "custom/launcher": {
     "format": "",
-    "on-click": "wofi --show drun &"
+    "on-click": "wofi --show drun &",
+    "tooltip": false
+  },
+  "custom/update": {
+    "format": "{}",
+    "exec": "~/.config/waybar/update.sh",
+    "on-click": "~/.config/waybar/update.sh update",
+    "interval": 300,
+    "tooltip": false
   },
   "hyprland/window": {
     "format": "{}"
