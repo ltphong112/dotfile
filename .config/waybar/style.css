@@ -7,7 +7,7 @@
 /* rospine colorscheme */
 @define-color base      #191724;
 @define-color surface   #1f1d2e;
-@define-color overlay   #26233a;
+@define-color overlay   #26230a;
 @define-color muted     #6e6a86;
 @define-color subtle    #908caa;
 @define-color text      #e0def4;
@@ -34,25 +34,25 @@ window#waybar.hidden {
 
 .modules-left {
   background-color: @base;
-  border-radius: 33px;
-  margin: 16px 0px 0px 3px;
-  padding: 3px 3px 6px 0px;
+  border-radius: 30px;
+  margin: 16px 0px 0px 6px;
+  padding: 9px 4px 10px 0px;
   color: @rose;
 }
 .modules-center {
   background-color: @base;
-  border-radius: 33px;
-  margin: 0px 0px 0px 3px;
-  padding: 9px 0px 9px 0px;
+  border-radius: 30px;
+  margin: 0px 0px 0px 6px;
+  padding: 5px 0px 5px 0px;
 }
 #workspaces button.active {
   color: @gold;
 }
 .modules-right {
   background-color: @base;
-  border-radius: 33px;
-  margin: 0px 0px 16px 3px;
-  padding: 13px 0px 13px 0px;
+  border-radius: 30px;
+  margin: 0px 0px 16px 6px;
+  padding: 15px 0px 15px 0px;
 }
 #custom-update {
   color: @pine;
@@ -62,19 +62,20 @@ window#waybar.hidden {
 }
 #pulseaudio {
   color: @pine;
-  font-size: 16;
-  padding: 9px 0px 0px 0px;
+  font-size: 16px;
+  padding: 9px 3px 0px 0px;
 }
 #backlight {
   color:@rose;
-  padding: 0px 0px 0px 3px;
+  padding: 6px 0px 0px 0px;
 }
 #network {
   color: @iris;
-  padding: 0px 6px 0px 0px;
+  padding: 6px 6px 0px 0px;
 }
 #battery {
   color: @gold;
+  padding: 6px 0px 0px 0px;
 }
 #clock {
   color: @love;
