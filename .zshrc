@@ -1,5 +1,5 @@
 eval "$(starship init zsh)"
-#eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh)"
 
 function command_not_found_handler {
   return 127
@@ -15,29 +15,16 @@ setopt HIST_IGNORE_DUPS
 setopt AUTO_CD
 
 # aliases
-alias niol='clear && source ~/.zshrc'
-alias ls='echo; lsd'
+alias ls='lsd'
 alias n='nvim'
 alias c='calc'
 alias zz='cd ~'
 alias g='cd "$(xplr --print-pwd-as-result)"'
-alias N='cd ~/notes'
-alias d='cd ~/dotfiles'
-alias D='cd ~/downloads'
-alias S='cd ~/downloads/surveys/'
-alias v='cd ~/vagari'
-alias e='cd ~/dotfiles/config/nvim'
 alias x='exit'
-alias p='paru'
-alias update='paru -Syu && paru -Qqe > ~/dotfiles/etc/packages.lst'
 alias oc='ouch compress'
 alias od='ouch decompress'
 alias ol='ouch list --tree'
 alias man='man --pager=$PAGER'
-alias zoomfix='XDG_CURRENT_DESKTOP=gnome GDK_BACKEND=x11 QT_QPA_PLATFORM=xcb zoom & disown'
-alias mfix='hyprctl dispatch workspace 7; kitty -e sudo logid & disown'
-alias af='GDK_BACKEND=x11 QT_QPA_PLATFORM=xcb audacity & disown'
-alias tt='cd ~/dabella && ls *.zip'
 function tree () {
   echo
   if [[ -z $1 ]]; then
